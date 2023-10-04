@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap');
+
+/* Variables */
+:root {
+  --soft-blue: hsl(215, 51%, 70%);
+  --cyan: hsl(178, 100%, 50%);
+  --very-dark-blue-main-bg: hsl(217, 54%, 11%);
+  --very-dark-blue-card-bg: hsl(216, 50%, 16%);
+  --very-dark-blue-line: hsl(215, 32%, 27%);
+  --white: hsl(0, 0%, 100%);
+  --alpha-cyan: hsla(178, 100%, 50%, 0.5);
+  --transition: all 0.3s ease-in-out;
+}
+
+/* Reset */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
+body {
+  font-family: 'Outfit', sans-serif;
+  font-size: 18px;
+  min-height: calc(100vh - 1em);
+  display: grid;
+  place-content: center;
+  background-color: var(--very-dark-blue-main-bg);
+  margin: 1em;
+}
+
+/* Utils */
+.flex {
+  display: flex;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.column {
+  flex-direction: column;
+}
+
+/* Main */
+main {
+  width: 100%;
+  overflow: hidden;
+  padding: 1.5em 1.2em;
+  border-radius: 0.8em;
+  background: var(--very-dark-blue-card-bg);
+  box-shadow: 0 1.5em 0.5em 1em hsla(217, 54%, 11%, 0.6),
+    0 20px 0.5em 3em hsla(216, 50%, 16%, 0.2);
+}
+
+.card-media {
+  position: relative;
+}
+
+.card-media,
+.card-media > img,
+.overlay {
+  width: 100%;
+  border-radius: 0.6em;
+}
+
+.card-media > img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  opacity: 0;
+  position: absolute;
+  inset: 0 0 0.25em 0;
+  background: var(--alpha-cyan);
+  z-index: 1;
+  transition: var(--transition);
+}
+
+.card-title {
+  color: var(--white);
+  font-weight: 700;
+  font-size: 1.25em;
+  margin: 1em 0em 0.8em 0.2em;
+  transition: var(--transition);
+}
+
+.card-text {
+  color: var(--soft-blue);
+  font-weight: 300;
+  font-size: 0.9em;
+  line-height: 1.5;
+  margin-bottom: 1em;
+}
+
+.details {
+  margin-bottom: 1em;
+}
+
+.currency,
+.time {
+  gap: 0.3em;
+}
+
+.currency {
+  color: var(--cyan);
+  font-size: 0.9em;
+  font-weight: 400;
+}
+
+.time {
+  color: var(--soft-blue);
+  font-weight: 300;
+  font-size: 0.8em;
+}
+
+.divider {
+  width: 100%;
+  height: 0.06em;
+  background: var(--very-dark-blue-line);
+  margin-bottom: 1.5em;
+}
+
+.card-footer {
+  gap: 1em;
+  height: 2em;
+}
+
+.card-footer > img {
+  height: 100%;
+  border: 1px solid var(--white);
+  border-radius: 50%;
+}
+
+.card-footer > p {
+  color: var(--soft-blue);
+  font-size: 0.9em;
+  font-weight: 300;
+}
+
+.card-footer a {
+  color: var(--white);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+/*Active states*/
+.card-media:hover > .overlay {
+  cursor: pointer;
+  opacity: 1;
+}
+
+.card-title:hover {
+  cursor: pointer;
+  color: var(--cyan);
+}
+
+.card-footer a:hover {
+  color: var(--cyan);
+}
+
+/* Media Queries */
+@media only screen and (min-width: 375px) {
+  main {
+    max-width: 20em;
+  }
+}
